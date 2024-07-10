@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="/static/images/favicon.ico" />
+    <title>Ames Brewers League</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/site.css">
+</head>
+
+<body class="bg-dark">
+    <div id="main-container" class="container border bg-light my-5">
+        <!--Alert-->
+        <!-- <div class="alert alert-success fixed-top text-center">
+            The 2023 Ames Brewers League raffle took place <b>April 16, 2023</b>.
+            A big thank you to our <a href="./raffle.html">sponsors</a>!
+        </div> -->
+
+        <!--Header-->
+        <div id="header" class="jumbotron row">
+            <div class="col-lg-3 col-md-5 col-sm-12">
+                <img src="/static/images/logo-website.png" alt="abl-logo" class="img-fluid">
+            </div>
+            <div class="col-lg-9 col-md-7 d-none d-md-block">
+                <h1 class="display-3">The Ames Brewers League</h1>
+                <p class="lead">
+                    <b>
+                        A community of homebrewing enthusiasts in the Ames, IA region
+                    </b>
+                </p>
+            </div>
+        </div>
+
+        <div class="container row mt-5 pb-5">
+            <!--Sidebar-->
+            <div class="col-md-3 mb-5">
+                <div class="list-group">
+                    <a href="./" class="list-group-item list-group-item-action">About Us</a>
+                    <a href="./minutes.html" class="list-group-item list-group-item-action">Meeting
+                        Minutes</a>
+                    <a href="./leaderboard.html" class="list-group-item list-group-item-action">Leaderboards</a>
+                    <a href="./results.html" class="list-group-item list-group-item-action">Competition
+                        Results</a>
+                    <a href="./upcoming.html" class="list-group-item list-group-item-action">Upcoming Competitions</a>
+                    <a href="./raffle.html" class="list-group-item list-group-item-action">2023 Raffle</a>
+                </div>
+                <div class="text-center mt-1">
+                    <a class="btn" href="https://www.facebook.com/groups/amesbrewersleague/" target="_blank">
+                        <img src="/static/images/facebook-logo.png" alt="Facebook Icon" width="32px">
+                    </a>
+                    <a class="btn" href="https://groups.google.com/forum/#!forum/abl-email" target="_blank">
+                        <img src="/static/images/google-groups-icon.png" alt="Google Group Icon" width="38px">
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-9">
+                
+
+<h1>2023 Raffle</h1>
+<hr>
+
+<p class="mt-3">
+    The next Ames Brewers League's annual raffle will take place <b>April 16, 2023</b>
+    at <b>Torrent Brewing Company</b> from <b>2-5 PM</b>. Various brewing-related items have
+    been donated by local companies and online retailers as prizes. The sponsors for the
+    raffle are posted below. We appreciate their contributions and encourage you
+    to check out their offerings. We hope to see you there!
+</p>
+
+<h3>Sponsors</h3>
+<hr>
+
+
+<div class="row">
+    
+
+    <div class="col-md-4">
+        <a href="http://torrentbrewingco.com/">
+            <img src="https://amesdowntown.org/wp-content/uploads/elementor/thumbs/Torrent-1-pq0oxuke8nphu4hg3glmvxsohlji35ybcl11vnbauw.jpg" class="img-fluid">
+        </a>
+        <p>
+            Torrent Brewing Company
+        </p>
+    </div>
+
+    
+
+    <div class="col-md-4">
+        <a href="https://spikebrewing.com/">
+            <img src="data:image/png;base64,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" class="img-fluid">
+        </a>
+        <p>
+            Spike Brewing
+        </p>
+    </div>
+
+    
+
+    <div class="col-md-4">
+        <a href="https://bsgcraftbrewing.com/">
+            <img src="https://pbs.twimg.com/profile_images/466686070801719296/W28i7eln_400x400.jpeg" class="img-fluid">
+        </a>
+        <p>
+            Brewers Supply Group
+        </p>
+    </div>
+
+    
+</div>
+
+<div class="row">
+    
+
+    <div class="col-md-4">
+        <a href="https://www.williamsbrewing.com/">
+            <img src="https://www.williamsbrewing.com/Themes/Williams/content/images/logo.png" class="img-fluid">
+        </a>
+        <p>
+            Williams Brewing
+        </p>
+    </div>
+
+    
+
+    <div class="col-md-4">
+        <a href="https://morningbellcoffeeroasters.square.site/">
+            <img src="https://morningbellcoffeeroasters.square.site/uploads/b/30b722c0-fcdc-11e9-8a9a-552e5e63e700/7d2fc7b898690296721ffc1eac74a894.png" class="img-fluid">
+        </a>
+        <p>
+            Morning Bell Coffee Roasters
+        </p>
+    </div>
+
+    
+
+    <div class="col-md-4">
+        <a href="https://www.alluvialbrewing.com/">
+            <img src="https://web.ameschamber.com/external/wcpages/wcwebcontent/webcontentpage.aspx?contentid=5149" class="img-fluid">
+        </a>
+        <p>
+            Alluvial Brewing
+        </p>
+    </div>
+
+    
+</div>
+
+<div class="row">
+    
+
+    <div class="col-md-4">
+        <a href="https://www.fencelinebeerlab.com/">
+            <img src="https://pbs.twimg.com/profile_images/949396592246759424/MuUomm7l_400x400.jpg" class="img-fluid">
+        </a>
+        <p>
+            Fenceline Beer Lab
+        </p>
+    </div>
+
+    
+
+    <div class="col-md-4">
+        <a href="https://confluencebrewing.com/">
+            <img src="https://confluencebrewing.com/wp-content/uploads/2019/12/CBC_19_Website_Logo_Octagon.png" class="img-fluid">
+        </a>
+        <p>
+            Confluence Brewing Company
+        </p>
+    </div>
+
+    
+</div>
+
+
+
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
