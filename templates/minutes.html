@@ -14,7 +14,7 @@
     <div class="col-lg-4 col-md-5 col-sm-8 col-xs-12">
         <div id="minutes-list" class="list-group">
             {% for min in minutes %}
-            <a href="/minutes/{{ min.date.year }}/{{ min.file_path.name }}" target="_blank"
+            <a href="/minutes/{{ min.file_path.name }}" target="_blank"
                 class="p-2 text-primary list-group-item list-group-item-action">
                 {{ min.date.strftime('%B %Y') }}
             </a>
