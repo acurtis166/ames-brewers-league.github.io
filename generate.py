@@ -20,6 +20,10 @@ def render(env: Environment, filename: str, **kwargs):
     (PUBLISH_DIR / filename).write_text(html)
 
 
+def ignore_non_pdf_files(_: str, names: list[str]) -> list[str]:
+    return [name for name in names if not name.endswith(".pdf")]
+
+
 def main():
     conf = config.load(CONFIG_FILE)
 
@@ -31,7 +35,7 @@ def main():
     shutil.copytree(TEMPLATE_DIR / "static", PUBLISH_DIR / "static")
 
     # Copy meeting minutes to the publish directory.
-    shutil.copytree(conf.minutes, PUBLISH_DIR / "minutes")
+    shutil.copytree(conf.minutes, PUBLISH_DIR / "minutes", ignore=ignore_non_pdf_files)
 
     # Render HTML files with data.
     env = Environment(loader=FileSystemLoader(TEMPLATE_DIR))
