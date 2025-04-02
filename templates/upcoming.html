@@ -25,7 +25,7 @@
                 <tr>
                     <td>{{ comp.date.strftime('%m/%d/%Y') }}</td>
                     <td>{{ comp.style }}</td>
-                    <td>{{ comp.category }}</td>
+                    <td>{{ comp.category or "" }}</td>
                     <td>{{ comp.bjcp_year }}</td>
                 </tr>
                 {% endfor %}

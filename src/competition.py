@@ -1,10 +1,7 @@
 """Define schema for competition data. Load competitions from file."""
 
-import collections
-import csv
 import datetime as dt
 from dataclasses import dataclass
-from pathlib import Path
 
 
 @dataclass(frozen=True)
@@ -22,46 +19,27 @@ class Competition:
 
     date: dt.date
     style: str
-    category: str
+    category: str | None
     bjcp_year: int
     entries: list[Entry]
 
 
-def _read_csv(path: Path) -> list[dict]:
-    """Parse a CSV file and return a list of dictionary records."""
-    with path.open() as fp:
-        return [l for l in csv.DictReader(fp)]
-
-
-def _groupby(data: list[dict], key: str) -> dict:
-    """Group a list of dictionaries by the specified key."""
-    out = collections.defaultdict(list)
-    for item in data:
-        out[item[key]].append(item)
-    return out
-
-
-def load(competitions_path: Path, entries_path: Path) -> list[Competition]:
+def load(data: list[dict]) -> list[Competition]:
     """Load and compile competition data to create Competition objects"""
-    all_competitions = _read_csv(competitions_path)
-    all_entries = _groupby(_read_csv(entries_path), "date")
-
     out = []
-    for competition in all_competitions:
-        entries = all_entries.get(competition["date"], [])
+    for competition in data:
         # Sort entries from most points to least points
-        entries = list(sorted(entries, key=lambda e: e["points"], reverse=True))
-        comp = Competition(
-            dt.date.fromisoformat(competition["date"]),
-            competition["style"],
-            competition["category"],
-            int(competition["bjcp_year"]),
-            [
-                Entry(e["brewer"], e["beer"], float(e["points"]))
-                for e in entries
-            ],
+        sorted_entries = sorted(
+            competition["entries"], key=lambda e: e["points"], reverse=True
         )
-        out.append(comp)
+        competition = Competition(
+            date=dt.date.fromisoformat(competition["date"]),
+            style=competition["style"],
+            category=competition["category"],
+            bjcp_year=competition["bjcp_year"],
+            entries=[Entry(**e) for e in sorted_entries],
+        )
+        out.append(competition)
     return out
 
 

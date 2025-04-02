@@ -31,7 +31,7 @@
                 {% for entry in comp.entries %}
                 <tr>
                     <td>{{ entry.brewer }}</td>
-                    <td>{{ entry.beer }}</td>
+                    <td>{{ entry.beer or "" }}</td>
                     <td>{{ entry.points }}</td>
                 </tr>
                 {% endfor %}

@@ -1,6 +1,7 @@
 """Generate the static ABL website using file-based data sources."""
 
 import datetime as dt
+import json
 import shutil
 from pathlib import Path
 
@@ -39,7 +40,7 @@ def main():
 
     # Render HTML files with data.
     env = Environment(loader=FileSystemLoader(TEMPLATE_DIR))
-    comps = competition.load(conf.competitions, conf.entries)
+    comps = competition.load(json.loads(conf.competitions.read_bytes()))
     history, upcoming = competition.split_competition_list(comps, dt.date.today())
     lboards = leaderboard.create_leaderboards(comps)
     mins = sorted(minutes.load(conf.minutes), key=lambda m: m.date, reverse=True)
