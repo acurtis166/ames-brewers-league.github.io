@@ -10,7 +10,6 @@ class Config:
     """File-system locations of data sources."""
 
     competitions: Path
-    entries: Path
     minutes: Path
     sponsors: Path
 
