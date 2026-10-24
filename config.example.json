@@ -1,0 +1,5 @@
+{
+    "competitions": "competitions.json",
+    "minutes": "minutes/",
+    "sponsors": "2023_raffle_sponsors.json"
+}
