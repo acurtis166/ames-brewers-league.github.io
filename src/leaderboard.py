@@ -37,7 +37,7 @@ def _create_leaderboard(
     for comp in competitions:
         for entry in comp.entries:
             totals[entry.brewer] += entry.points
-    total_items = list(sorted(totals.items(), key=lambda t: t[1], reverse=True))
+    total_items = sorted(totals.items(), key=lambda t: t[1], reverse=True)
 
     out = []
     previous_points = None

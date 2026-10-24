@@ -61,6 +61,6 @@ def split_competition_list(
         else:
             before.append(comp)
 
-    before = list(sorted(before, key=lambda c: c.date, reverse=True))
-    after = list(sorted(after, key=lambda c: c.date))
+    before = sorted(before, key=lambda c: c.date, reverse=True)
+    after = sorted(after, key=lambda c: c.date)
     return before, after
